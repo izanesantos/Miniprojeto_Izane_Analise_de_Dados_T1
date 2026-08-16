@@ -137,3 +137,21 @@ plt.xlabel("Número de filhos")
 plt.ylabel("Quantidade de registros")
 
 plt.show()
+
+
+print("\n===== CONCLUSÕES DA ANÁLISE =====")
+
+print("1. A categoria ALIMENTOS apresentou 384.197 registros, "
+      "representando aproximadamente 52,4% da base.")
+
+print("2. O gênero F apresentou 382.427 registros, "
+      "representando aproximadamente 52,1% da base.")
+
+print("3. A categoria ALIMENTOS apresentou a maior quantidade de registros "
+      "para os dois gêneros: 200.274 para F e 183.923 para M.")
+
+print("4. O número de filhos apresentou média de aproximadamente 1,15, "
+      "enquanto a mediana e a moda foram iguais a 0.")
+
+print("5. PRESUNTO COZIDO foi o produto mais frequente, "
+      "com 12.719 registros.")
