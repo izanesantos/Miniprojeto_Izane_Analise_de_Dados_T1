@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 df = pd.read_csv("LIMPEZA/Base_Varejo_Limpa.csv", sep=";")
 
@@ -85,4 +87,53 @@ produtos_frequentes = (
 
 print(produtos_frequentes.head(10))
 
+#Visualização dos dados
+plt.figure(figsize=(10, 6))
 
+sns.countplot(
+    data=df,
+    x="PR_CAT",
+    order=df["PR_CAT"].value_counts().index
+)
+
+plt.title("Quantidade de registros por categoria")
+plt.xlabel("Categoria")
+plt.ylabel("Quantidade de registros")
+
+plt.show()
+
+genero_categoria = pd.crosstab(df["CL_GENERO"], df["PR_CAT"])
+
+dados_grafico = genero_categoria.reset_index().melt(
+    id_vars="CL_GENERO",
+    var_name="PR_CAT",
+    value_name="QUANTIDADE"
+)
+
+plt.figure(figsize=(10, 6))
+
+sns.barplot(
+    data=dados_grafico,
+    x="PR_CAT",
+    y="QUANTIDADE",
+    hue="CL_GENERO"
+)
+
+plt.title("Quantidade de registros por gênero e categoria")
+plt.xlabel("Categoria")
+plt.ylabel("Quantidade de registros")
+
+plt.show()
+
+plt.figure(figsize=(8, 5))
+
+sns.countplot(
+    data=df,
+    x="CL_FHL"
+)
+
+plt.title("Distribuição do número de filhos")
+plt.xlabel("Número de filhos")
+plt.ylabel("Quantidade de registros")
+
+plt.show()
